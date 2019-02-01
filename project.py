@@ -25,7 +25,6 @@ def home():
         nonStop = request.form["nonStop"]
         return redirect(url_for('flights',origin=origin,destination=destination,departureDate=departureDate,duration=duration,nonStop=nonStop))
 
-
     return render_template("homepage.html")
 
 @app.route('/flights/<string:origin>/<string:destination>')
@@ -35,8 +34,9 @@ def flights(origin,destination):
         departureDate = request.args.get('departureDate')
         nonStop = request.args.get('nonStop')
         #request data from amadeus
-        response = amadeus.shopping.flight_dates.get(origin=origin, destination=destination, departureDate=departureDate,duration=duration,nonStop=nonStop).data
-        output = json.dumps(response)
+        flights = amadeus.shopping.flight_dates.get(origin=origin, destination=destination, departureDate=departureDate,duration=duration,nonStop=nonStop).data
+        # output = json.dumps(response)
+        return render_template('flights.html',origin=origin,destination=destination,flights=flights)
     except ResponseError as error:
         output = "Response error"
         print(error)

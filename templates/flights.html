@@ -1,0 +1,8 @@
+<html>
+    <body>
+        <h1>From {{origin}} to {{ destination }}:</h1>
+        {% for flight in flights %}
+            price: {{flight.price.total}}
+        {% endfor%}
+    </body>
+</html>
