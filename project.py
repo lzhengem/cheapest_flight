@@ -1,4 +1,4 @@
-from flask import Flask, render_template
+from flask import Flask, render_template, request
 import json
 import requests
 from amadeus import Client, ResponseError
@@ -14,8 +14,28 @@ amadeus = Client(
 )
 
 
-@app.route('/')
+@app.route('/', methods=["GET","POST"])
 def home():
+    if request.method == "POST":
+        try:
+            #get the parameters from form
+            origin = request.form["origin"]
+            destination = request.form["destination"]
+            departureDate = request.form["departureDate"]
+            duration = request.form["duration"]
+            nonStop = request.form["nonStop"]
+ 
+            #request data from amadeus
+            response = amadeus.shopping.flight_dates.get(origin=origin, destination=destination, departureDate=departureDate,duration=duration,nonStop=nonStop)
+            output = json.dumps(response.data)
+        except ResponseError as error:
+            output = "Response error"
+            print(error)
+        except Exception as error:
+            output = "Exception error"
+            print(error)
+        return output
+
     return render_template("homepage.html")
   
 if __name__ == '__main__':
