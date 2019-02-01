@@ -1,18 +1,27 @@
 <html>
     <body>
         Hello! Which airport would you like to look at?
-        <form action="/home" method="POST">
+        <form action="{{url_for('home')}}" method="POST">
             Origin:
             </br>
-            <input type="text" name="origin">
+            <input type="text" name="origin" value="SFO">
             </br>
             Destination:
             </br>
-            <input type="text" name="destination">
+            <input type="text" name="destination" value="NYC">
             </br>
             Date:
             </br>
-            <input type="date" name="date_of_departure">
+            <input type="text" name="departureDate" value="2019-03-01">
+            </br>
+            Duration:
+            </br>
+            <input type=number name="duration" value=4>
+            </br>
+            NonStop only:
+            </br>
+            <input type="radio" name="nonStop" id="yes" value="True" checked> Yes </<br>
+            <input type="radio" name="nonStop" id="no" value="False"> No </br>
             <input type="submit" value="Search">
             
         </form>
