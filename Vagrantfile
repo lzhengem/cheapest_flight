@@ -38,6 +38,7 @@ Vagrant.configure("2") do |config|
     pip3 install --upgrade pip
     pip3 install flask packaging oauth2client redis passlib flask-httpauth
     pip3 install sqlalchemy flask-sqlalchemy psycopg2-binary bleach requests
+    pip3 install amadeus
 
     apt-get -qqy install python python-pip
     pip2 install --upgrade pip
