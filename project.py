@@ -20,10 +20,11 @@ def home():
         #get the parameters from form
         origin = request.form["origin"]
         destination = request.form["destination"]
-        departureDate = request.form["departureDate"]
+        firstDepartureDate = request.form["firstDepartureDate"]
+        lastDepartureDate = request.form["lastDepartureDate"]
         duration = request.form["duration"]
         nonStop = request.form["nonStop"]
-        return redirect(url_for('flights',origin=origin,destination=destination,departureDate=departureDate,duration=duration,nonStop=nonStop))
+        return redirect(url_for('flights',origin=origin,destination=destination,firstDepartureDate=firstDepartureDate,lastDepartureDate=lastDepartureDate,duration=duration,nonStop=nonStop))
 
     return render_template("homepage.html")
 
@@ -31,8 +32,10 @@ def home():
 def flights(origin,destination):
     try:
         duration = request.args.get('duration')
-        departureDate = request.args.get('departureDate')
+        firstDepartureDate = request.args.get('firstDepartureDate')
+        lastDepartureDate = request.args.get('lastDepartureDate')
         nonStop = request.args.get('nonStop')
+        
         #request data from amadeus
         flights = amadeus.shopping.flight_dates.get(origin=origin, destination=destination, departureDate=departureDate,duration=duration,nonStop=nonStop).data
         # output = json.dumps(response)
