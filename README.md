@@ -6,8 +6,16 @@ cheapest_flight is an app in which you can enter a origin and destination, with 
 
 2. flask
 
-3. amadeus
+3. amadeus - You will need a client id and client secret from https://developers.amadeus.com/self-service/category/203/api-doc/5/api-docs-and-example/10003
+* save the client id and client secret in a file called "amadeus_client_secrets.json" in the same folder as project.py
+* it should look like this:
+```
+{"amadeus":
+    {"client_id": "yourclientid",
+    "client_secret": "yourclientsecret"}
 
+}
+```
 ## Description
 * Enter in origin
 * Enter in destination
@@ -20,4 +28,4 @@ cheapest_flight is an app in which you can enter a origin and destination, with 
 ## Usage
 1. Run the project
 ```python project.py```
-2. Go on your web browser to localhost:8500
+2. Go on your web browser to http://localhost:8500
