@@ -8,8 +8,17 @@ from amadeus import Client, ResponseError
 import os #so that we can listen on the environment port
 app = Flask(__name__)
 
-AMADEUS_ID = json.loads(open('amadeus_client_secrets.json','r').read())['amadeus']['client_id']
-AMADEUS_SECRET = json.loads(open('amadeus_client_secrets.json','r').read())['amadeus']['client_secret']
+#check to see if app is being deployed on Heroku or local
+ON_HEROKU = False
+debug = True
+if 'DYNO' in os.environ:
+    ON_HEROKU = True
+    debug = False
+
+# AMADEUS_ID = json.loads(open('amadeus_client_secrets.json','r').read())['amadeus']['client_id']
+# AMADEUS_SECRET = json.loads(open('amadeus_client_secrets.json','r').read())['amadeus']['client_secret']
+AMADEUS_ID = os.environ.get('AMADEUS_ID')
+AMADEUS_SECRET = os.environ.get('AMADEUS_SECRET')
 
 amadeus = Client(
     client_id=AMADEUS_ID,
@@ -58,7 +67,7 @@ def flights(origin,destination):
     return output
 
 if __name__ == '__main__':
-    app.debug = True
+    app.debug = debug
     port = int(os.environ.get('PORT',8500))
     app.run(host='0.0.0.0', port = port)
     # app.run()
