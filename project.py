@@ -2,7 +2,7 @@ from flask import Flask, render_template, request,redirect, url_for
 import json
 import requests
 from datetime import datetime, timedelta
-
+from functools import reduce
 from amadeus import Client, ResponseError
 
 import os #so that we can listen on the environment port
