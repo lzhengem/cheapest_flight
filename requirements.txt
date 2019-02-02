@@ -1,0 +1,3 @@
+requests==2.21.0
+flask==1.0.2
+amadeus==3.0.0
