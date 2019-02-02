@@ -24,10 +24,20 @@ AMADEUS_SECRET={YOUR SECRET}
 ## Description
 * Enter in origin
 * Enter in destination
-* Enter in departure date
+* Enter in first departure date
+* Enter in last departure date
 * Enter duration of trip
 * Choose nonStop or any
 * After submitting the form, it will give you the cheapest dates to fly for the choosen dates
+
+For example, if I wanted to find the cheapest days to go from SFO to NYC (nonstop flights) for 4 days and I can leave between March 1,2019 to March 6, 2019, I'd enter the parameters:
+
+origin: SFO
+destination: NYC
+first departure date: 2019-03-01
+last departure date: 2019-03-06
+duration: 4
+nonStop: Yes
 
 ## Backstory
 Me and my friends had wanted to go to Japan in the month of August. We didn't really care when we left, as long as it was in August and it lasted for 2 weeks. We wanted to find the cheapest dates to go. It would have been very cumbersome to lookup each day in the month of August manually to find the cheapest flights, so this app was born!
