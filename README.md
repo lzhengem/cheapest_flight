@@ -44,5 +44,33 @@ duration: 4
 
 nonStop: Yes
 
+
+As of today 2/1/2019, the amadeus api only has available certain origin and destinations:
+
+SFO -> PSP
+SFO -> PDX
+SFO -> MKC
+SFO -> BOS
+SFO -> NYC
+
+BOS -> BNA
+BOS -> BUF
+BOS ->PHL
+BOS -> CLE
+BOS -> SNA
+
+MAD -> LON
+MAD -> ALC
+MAD -> GOA
+MAD -> MUC
+MAD -> TUN
+MAD -> WAW
+
+MUC -> BKK
+MUC -> SIN
+MUC -> SAN
+MUC -> DEN
+
+
 ## Backstory
 Me and my friends had wanted to go to Japan in the month of August. We didn't really care when we left, as long as it was in August and it lasted for 2 weeks. We wanted to find the cheapest dates to go. It would have been very cumbersome to lookup each day in the month of August manually to find the cheapest flights, so this app was born!
