@@ -29,4 +29,5 @@ AMADEUS_SECRET={YOUR SECRET}
 * Choose nonStop or any
 * After submitting the form, it will give you the cheapest dates to fly for the choosen dates
 
-
+## Backstory
+Me and my friends had wanted to go to Japan in the month of August. We didn't really care when we left, as long as it was in August and it lasted for 2 weeks. We wanted to find the cheapest dates to go. It would have been very cumbersome to lookup each day in the month of August manually to find the cheapest flights, so this app was born!
