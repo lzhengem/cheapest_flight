@@ -1,1 +1,1 @@
-python project.py
+python3 project.py
