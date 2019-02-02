@@ -1,6 +1,8 @@
 from flask import Flask, render_template, request,redirect, url_for
 import json
 import requests
+from datetime import datetime, timedelta
+
 from amadeus import Client, ResponseError
 
 app = Flask(__name__)
@@ -35,11 +37,17 @@ def flights(origin,destination):
         firstDepartureDate = request.args.get('firstDepartureDate')
         lastDepartureDate = request.args.get('lastDepartureDate')
         nonStop = request.args.get('nonStop')
+        #convert strings to dates
+        firstDate = datetime.strptime(firstDepartureDate, '%Y-%m-%d')
+        lastDate = datetime.strptime(lastDepartureDate, '%Y-%m-%d')
         
-        #request data from amadeus
-        flights = amadeus.shopping.flight_dates.get(origin=origin, destination=destination, departureDate=departureDate,duration=duration,nonStop=nonStop).data
-        # output = json.dumps(response)
+        #get a list of all the dates from firstDate to lastDate
+        allDepartureDates = [str((firstDate + timedelta(days=x)).date()) for x in range(0, (lastDate-firstDate).days + 1)]
+        
+        #for each departure date, request data from amadeus and collect them into flights
+        flights = reduce(lambda x, departureDate : x + amadeus.shopping.flight_dates.get(origin=origin, destination=destination, departureDate=departureDate,duration=duration,nonStop=nonStop).data, allDepartureDates, [])
         return render_template('flights.html',origin=origin,destination=destination,flights=flights)
+        
     except ResponseError as error:
         output = "Response error"
         print(error)
