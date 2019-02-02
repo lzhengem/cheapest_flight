@@ -5,6 +5,7 @@ from datetime import datetime, timedelta
 
 from amadeus import Client, ResponseError
 
+import os #so that we can listen on the environment port
 app = Flask(__name__)
 
 AMADEUS_ID = json.loads(open('amadeus_client_secrets.json','r').read())['amadeus']['client_id']
@@ -57,6 +58,7 @@ def flights(origin,destination):
     return output
 
 if __name__ == '__main__':
-    app.debug = True    
-    # app.run(host='0.0.0.0', port = 8500)
-    app.run()
+    app.debug = True
+    port = int(os.environ.get('PORT',8500))
+    app.run(host='0.0.0.0', port = port)
+    # app.run()
