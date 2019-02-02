@@ -33,10 +33,15 @@ AMADEUS_SECRET={YOUR SECRET}
 For example, if I wanted to find the cheapest days to go from SFO to NYC (nonstop flights) for 4 days and I can leave between March 1,2019 to March 6, 2019, I'd enter the parameters:
 
 origin: SFO
+
 destination: NYC
+
 first departure date: 2019-03-01
+
 last departure date: 2019-03-06
+
 duration: 4
+
 nonStop: Yes
 
 ## Backstory
