@@ -56,8 +56,20 @@ def flights(origin,destination):
         
         #for each departure date, request data from amadeus and collect them into flights
         flights = reduce(lambda x, departureDate : x + amadeus.shopping.flight_dates.get(origin=origin, destination=destination, departureDate=departureDate,duration=duration,nonStop=nonStop).data, allDepartureDates, [])
-        return render_template('flights.html',origin=origin,destination=destination,flights=flights)
-        
+
+        cheapest_flights = []
+        for flight in flights:
+            # print('flight: %s' % flight)
+            if not cheapest_flights: #if the cheapest price hasn't been set yet, set it
+                cheapest_flights = [flight]
+            elif flight["price"]["total"] < cheapest_flights[0]["price"]["total"]: #if the current flight is cheaper than the current cheapest flight, this is now the cheapest flight
+
+                cheapest_flights = [flight]
+            elif flight["price"]["total"] == cheapest_flights[0]["price"]["total"]:
+                cheapest_flights.append(flight)
+
+
+        return render_template('flights.html',origin=origin,destination=destination,flights=flights,cheapest_flights=cheapest_flights)
     except ResponseError as error:
         output = "Response error"
         print(error)
