@@ -1,33 +1,50 @@
 <html>
+    <head>
+        <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+        <link rel=stylesheet type=text/css href="{{ url_for('static', filename='styles.css') }}">
+        
+    </head>
     <body>
-        Hello! Which airport would you like to look at?
+        <div class="page-header">
+            <img class="img-responsive" src="{{ url_for('static', filename='airplane.png') }}" />
+        </div>
+        
         <form action="{{url_for('home')}}" method="POST">
-            Origin:
-            </br>
-            <input type="text" name="origin" value="SFO">
-            </br>
-            Destination:
-            </br>
-            <input type="text" name="destination" value="NYC">
-            </br>
-            First Departure Date:
-            </br>
-            <input type="text" name="firstDepartureDate" value="2019-03-01">
-            </br>
-            Last Departure Date:
-            </br>
-            <input type="text" name="lastDepartureDate" value="2019-03-06">
-            </br>
-            Duration:
-            </br>
-            <input type=number name="duration" value=4>
-            </br>
-            NonStop only:
-            </br>
-            <input type="radio" name="nonStop" id="yes" value="True" checked> Yes </<br>
-            <input type="radio" name="nonStop" id="no" value="False"> No </br>
-            <input type="submit" value="Search">
-            
+            <div class="container col-md-4">
+                <div class="form-group">
+                    <label for="origin">Origin: </label>
+                    <input type="text" name="origin" class="form-control" value="SFO">
+                </div>
+                <div class="form-group">
+                    <label for="destination">Destination: </label>
+                    <input type="text" name="destination" class="form-control" value="NYC">
+                </div>
+                <div class="form-group">
+                    <label for="firstDepartureDate">First Departure Date: </label>
+                    <input type="text" name="firstDepartureDate" class="form-control" value="2019-03-01">
+                </div>
+                <div class="form-group">
+                    <label for="lastDepartureDate">Last Departure Date: </label>
+                    <input type="text" name="lastDepartureDate" class="form-control" value="2019-03-06">
+                </div>
+                <div class="form-group">
+                    <label for="duration">Duration: </label>
+                    <input type=number name="duration" value=4>
+                </div>
+                NonStop only:
+                <div class="radio">
+
+                    <label><input type="radio" name="nonStop" checked>Yes</label>
+                    <!-- <input type="radio" name="nonStop" id="yes" value="True" checked> Yes </<br> -->
+                    <!-- <input type="radio" name="nonStop" id="no" value="False"> No </br> -->
+                </div>
+                <div class="radio">
+
+                    <label><input type="radio" name="nonStop">No</label>
+                </div>            
+                <button type="submit" class="btn btn-primary">Search</button>
+            </div>
         </form>
+
     </body>
 </html>
