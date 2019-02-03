@@ -13,6 +13,8 @@
             from: {{flight.departureDate}} to {{flight.returnDate}}
             price: {{flight.price.total}}
         </br>
-        {% endfor%}        
+        {% endfor%}
+        </br>
+        <a href="{{url_for('home')}}">Go back</a>
     </body>
 </html>
