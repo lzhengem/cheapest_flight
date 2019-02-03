@@ -1,0 +1,7 @@
+.banner.main {
+    height: 100px;
+    background: url("/static/top-banner.jpg");
+    background-position: right;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
