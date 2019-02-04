@@ -45,31 +45,7 @@ duration: 4
 nonStop: Yes
 
 
-As of today 2/1/2019, the amadeus api only has available certain origin and destinations:
-
-SFO -> PSP
-SFO -> PDX
-SFO -> MKC
-SFO -> BOS
-SFO -> NYC
-
-BOS -> BNA
-BOS -> BUF
-BOS ->PHL
-BOS -> CLE
-BOS -> SNA
-
-MAD -> LON
-MAD -> ALC
-MAD -> GOA
-MAD -> MUC
-MAD -> TUN
-MAD -> WAW
-
-MUC -> BKK
-MUC -> SIN
-MUC -> SAN
-MUC -> DEN
+As of 2/4/2019, the list of endpoints that the Amadeus API supports can be found [here.](https://github.com/amadeus4dev/hackathon-starter/blob/master/datasets/flightsearch.md)
 
 
 ## Backstory
